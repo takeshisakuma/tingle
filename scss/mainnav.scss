@@ -1,0 +1,14 @@
+.mainmenu__nav {
+  background-color: black;
+  ul {
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}

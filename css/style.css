@@ -1,0 +1,12 @@
+.mainmenu__nav {
+  background-color: black;
+}
+.mainmenu__nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+.mainmenu__nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+/*# sourceMappingURL=style.css.map */
