@@ -6,20 +6,10 @@
 <div class="fullWidth">
   <div class="contentWidth">
     <div class="contentBlock">
-      date.php
+      archive-news.php
 
-      <h1><?php the_time('Y年m月'); ?>の投稿一覧</h1>
-    </div>
-  </div>
-</div>
+      <h1>投稿タイプ:<?php echo get_post_type(); ?>の投稿一覧</h1>
 
-
-
-
-
-<div class="fullWidth">
-  <div class="contentWidth">
-    <div class="contentBlock">
 
 
 
@@ -30,7 +20,6 @@
 
           <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 
-
           <?php the_excerpt(); ?>
 
         <?php endwhile;
@@ -39,9 +28,16 @@
 
 
 
+
+
+
     </div>
   </div>
 </div>
+
+
+
+
 
 
 

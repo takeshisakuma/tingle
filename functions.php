@@ -14,7 +14,7 @@ function theme_setup()
 add_action('after_setup_theme', 'theme_setup');
 
 //カスタム投稿タイムitemを追加
-function register_custom_post_type_item()
+function register_custom_post_type()
 {
   register_post_type('item', [
     'label' => '商品',
@@ -24,18 +24,21 @@ function register_custom_post_type_item()
     'menu_icon' => 'dashicons-controls-play',
     'supports' => ['thumbnail', 'title', 'editor', 'page-attributes', 'custom-fields'],
     'has_archive' => true,
-    //    'show_in_rest' => true,
+    //'show_in_rest' => true,
   ]);
 
   register_post_type('news', [
     'label' => '新着情報',
     'public' => true,
     'menu_position' => 3,
+    //'hierarchical' => true,
     'menu_icon' => 'dashicons-controls-play',
     'supports' => ['thumbnail', 'title', 'editor', 'page-attributes'],
+    'has_archive' => true,
+    'show_in_rest' => true,
   ]);
 }
-add_action('init', 'register_custom_post_type_item');
+add_action('init', 'register_custom_post_type');
 
 //カスタムタクソノミー追加
 function create_book_taxonomies()
@@ -90,11 +93,11 @@ function create_book_taxonomies()
 add_action('init', 'create_book_taxonomies', 0);
 
 
-//検索対象
+//検索対象にカスタム投稿タイプを含める
 function filter_search($query)
 {
   if ($query->is_search() && $query->is_main_query() && !is_admin()) {
-    $query->set('post_type', array('post', 'page', 'item'));
+    $query->set('post_type', array('post', 'page', 'item', 'news'));
   }
 }
 add_filter('pre_get_posts', 'filter_search');

@@ -6,7 +6,7 @@
 ?>
 
 <?php get_header(); ?>
-<?php get_template_part('breadcrumb'); ?>
+
 <?php
 $tags = get_tags();
 foreach ($tags as $tag) {

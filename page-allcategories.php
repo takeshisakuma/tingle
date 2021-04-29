@@ -6,7 +6,7 @@
 ?>
 
 <?php get_header(); ?>
-<?php get_template_part('breadcrumb'); ?>
+
 <?php
 $categories = get_categories();
 foreach ($categories as $category) {

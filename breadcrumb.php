@@ -120,7 +120,18 @@
     <!-- トップページ -->
     <a href="<?php echo esc_url(home_url()); ?>">HOME</a>
     <!-- カスタム投稿タイプ名 -->
-    &gt; <?php echo get_post_type(); ?>一覧
+
+    &gt;
+
+    <?php
+    $post_type = get_post_type($post);
+    $post_type_label = get_post_type_object($post_type)->label;
+    echo $post_type_label . '一覧';
+    ?>
+
+
+
+
   <?php endif; ?>
 
 
@@ -133,20 +144,19 @@
     &gt; <?php the_time('Y年m月'); ?>
   <?php endif; ?>
 
-  <!-- newsなら -->
-  <?php if (is_singular('news')) : ?>
-
-    <!-- トップページ -->
-    <a href="<?php echo esc_url(home_url()); ?>">HOME</a>
-
-    <!-- 投稿タイプ名 -->
-    &gt; <a href="<?php echo esc_url(home_url('/news')); ?>">新着ニュース</a>
-    &gt; <?php the_title(); ?>
-  <?php endif; ?>
-
-  <!-- singleなら 済-->
+  <!-- singleなら -->
   <?php if (is_single()) : ?>
     <a href="<?php echo esc_url(home_url()); ?>">HOME</a>
+
+
+    &gt;
+
+    <?php
+    $post_type = get_post_type($post);
+    $post_type_label = get_post_type_object($post_type)->label;
+    echo '<a href="/' .  $post_type . '/">' . $post_type_label . '</a>';
+    ?>
+
     &gt; <?php $c = get_the_category();
           echo
           '<a href="' . get_category_link($c[0]->term_id) . '">' . $c[0]->name . '</a>'; ?>

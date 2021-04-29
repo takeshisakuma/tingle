@@ -2,8 +2,6 @@
 
 
 
-<?php get_template_part('breadcrumb'); ?>
-
 
 <div class="fullWidth">
   <div class="contentWidth">
@@ -33,10 +31,6 @@
 
 
             <?php the_content(); ?>
-
-
-
-
 
 
 

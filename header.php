@@ -31,3 +31,6 @@
 
   <div class="wrapper">
     <?php get_template_part('mainmenu'); ?>
+
+
+    <?php get_template_part('breadcrumb'); ?>
