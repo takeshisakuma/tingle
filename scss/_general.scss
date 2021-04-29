@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contentWidth {
+  width: 1120px;
+  margin: 0 auto;
+}
+
+.fullWidth {
+  width: 100%;
+  &.blue {
+    background-color: blue;
+  }
+}
+
+.contentBlock {
+  padding-bottom: 40px;
+}

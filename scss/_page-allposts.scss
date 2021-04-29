@@ -1,0 +1,14 @@
+.pageAllposts__item {
+  background-color: gray;
+
+  + .pageAllposts__item {
+    margin-top: 40px;
+  }
+}
+.pageAllposts__thumb {
+  width: 200px;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

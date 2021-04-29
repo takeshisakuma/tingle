@@ -1,4 +1,6 @@
 <?php get_header(); ?>
+<?php get_template_part('breadcrumb'); ?>
+
 search.php
 <h2><?php the_search_query(); ?>の検索結果 : <?php echo $wp_query->found_posts; ?>件</h2>
 <!-- 投稿情報 loop -->

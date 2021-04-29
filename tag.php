@@ -1,5 +1,8 @@
 <?php get_header(); ?>
-<?php include('mainmenu.php'); ?>
+<?php get_template_part('breadcrumb'); ?>
+
+tag.php
+
 <h2>タグ：<?php single_tag_title(); ?>の投稿一覧</h2>
 
 

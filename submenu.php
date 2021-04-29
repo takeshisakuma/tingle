@@ -1,4 +1,5 @@
-<?php
+<footer>
+  <?php
   $args = array(
     //設置場所
     'theme_location' => 'submenu',
@@ -7,7 +8,7 @@
     'container' => 'nav',
 
     //containerで指定したタグに付けるクラス名(半角スペースで複数指定可)menu-{メニューのスラッグ}-containerの形
-    'container_class' => 'mainmenu_nav',
+    'container_class' => 'submenu__nav',
 
     //containerで指定したタグに付けるID
     'container_id' => '',
@@ -46,3 +47,7 @@
 
 
   wp_nav_menu($args);
+  ?>
+
+
+</footer>

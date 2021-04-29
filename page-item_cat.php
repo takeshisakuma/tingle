@@ -7,16 +7,12 @@
 <div class="fullWidth">
   <div class="contentWidth">
     <div class="contentBlock">
-      category.php
+      page-item_cat.php
 
-      <h1>カテゴリー:<?php single_cat_title(); ?>の投稿一覧</h1>
+      <h1>itemのカテゴリー一覧</h1>
     </div>
   </div>
 </div>
-
-
-
-
 
 <div class="fullWidth">
   <div class="contentWidth">
@@ -29,10 +25,14 @@
 
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 
+          <?php
+          $terms = get_terms('item_cat');
+          foreach ($terms as $term) {
+            echo '<li><a href="' . get_term_link($term->slug, 'item_cat') . '">' . $term->name . '</a></li>';
+          }
+          ?>
 
-          <?php the_excerpt(); ?>
 
         <?php endwhile;
       else : ?>

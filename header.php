@@ -17,14 +17,17 @@
   <meta name="format-detection" content="email=no,telephone=no,address=no" />
   <meta name="theme-color" content="#2c3e50">
   <link rel="canonical" href="<?php echo ("http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); ?>" />
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
   <script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
   <?php wp_head(); ?>
 </head>
 
 <body>
-  <header>
+  <?php get_template_part('page-judgement'); ?>
 
 
-  </header>
+
+  <div class="wrapper">
+    <?php get_template_part('mainmenu'); ?>

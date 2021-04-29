@@ -1,20 +1,25 @@
 <?php get_header(); ?>
 
-<?php include('mainmenu.php'); ?>
+
+
+<?php get_template_part('breadcrumb'); ?>
+
+
+
 
 
 <?php get_sidebar(); ?>
 
 
-single.php
+<div class="fullWidth">
+  <div class="contentWidth">
+    <div class="contentBlock">
+      single.php
 
-<?php
-if (have_posts()) :
-  while (have_posts()) : the_post();
-?>
-    <article id="entry_article">
-      <p>タイトル</p>
-      <?php the_title(); ?>
+
+      <h1 class="page__heading1"><?php the_title(); ?> </h1>
+
+
 
 
       <p>カテゴリー</p>
@@ -26,65 +31,58 @@ if (have_posts()) :
       ?>
 
 
-      <p>日付</p>
-      <?php the_time('Y年m月d日'); ?>
+      <p>投稿日:<?php the_time('Y年m月d日'); ?></p>
+
+
+      <p>更新日:
+        <?php if (get_the_modified_date('Ymd') > get_the_date('Ymd')) : ?>
+          <time datetime="<?php echo get_the_modified_date('Y年m月d日'); ?>">更新：<?php echo get_the_modified_date('Y年m月d日'); ?></time>
+        <?php endif ?>
+      </p>
 
       <p>サムネイル</p>
       <?php the_post_thumbnail('full'); ?>
 
-      <p>本文</p>
+
       <?php the_content(); ?>
 
-      <p>サイト名</p>
-      <?php bloginfo('name'); ?>
-
-      <p>サイトURL</p>
-      <?php bloginfo('url'); ?>
-
-      <p>キャッチフレーズ</p>
-      <?php bloginfo('description'); ?>
-
-      <a href="<?php the_permalink(); ?>">続きを読む</a>
-
-      <p>テーマディレクトリ</p>
-      <?php echo esc_url(get_template_directory_uri()); ?>
 
 
 
-      <p>更新日</p>
-      <?php if (get_the_modified_date('Ymd') > get_the_date('Ymd')) : ?>
-        <time datetime="<?php echo get_the_modified_date('Y年m月d日'); ?>">更新：<?php echo get_the_modified_date('Y年m月d日'); ?></time>
-      <?php endif ?>
+
+
+
+
       <p>タグ</p>
       <?php the_tags('<ul><li>', '</li><li>', '</li></ul>'); ?>
-      <p>本文の抜粋</p>
-      <?php the_excerpt(); ?>
+
 
       <p>この著者の他の記事</p>
-      <?php the_author_posts_link(); ?>
 
+      <p>Other posts by <?php the_author_posts_link("user"); ?></p>
+
+      <?php the_author_link(); ?>
+      <?php the_author(); ?>
+
+      <?php the_author_link(); ?>
+      <?php the_author_posts_link(); ?>
       <p>同じ月の投稿</p>
 
-
       <ul><?php wp_get_archives('yearly'); ?></ul>
-    </article>
+      </article>
+
+
+    </div>
+  </div>
+</div>
 
 
 
 
 
 
-    <?php
-    echo get_post_meta($post->ID, '商品名', true);
-    ?>
 
 
-
-
-<?php
-  endwhile;
-endif;
-?>
 
 
 

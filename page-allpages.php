@@ -1,33 +1,69 @@
 <?php get_header(); ?>
-page-allpages.php
+<?php get_template_part('breadcrumb'); ?>
 
 
 
 
-<?php
-global $page;
-$args = array('pagess_per_page' => 4);
-$mypages = get_pages($args);
-foreach ($mypages as $page) {
-  setup_pagedata($page);
-?>
-  <div class="item">
 
-    <p>サムネイル</p>
-    <?php the_page_thumbnail(); ?>
+<div class="fullWidth">
+  <div class="contentWidth">
+    <div class="contentBlock">
+      page-allpages.php
 
-    <p>記事リンク</p>
-    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+      <h1 class="">固定ページ一覧</h1>
 
-    <p>投稿日</p>
-    <?php the_time('Y.m.d') ?>
+      <?php
+      global $post;
+      $args = array('posts_per_page' => 8);
+      $myposts = get_pages($args);
+      foreach ($myposts as $post) {
+        setup_postdata($post);
+      ?>
+        <div class="pageAllposts__item">
 
-    <p>カテゴリー</p>
-    <?php the_category(',') ?>
+          <div class="pageAllposts__thumb ">
+            <?php the_post_thumbnail(); ?>
+          </div>
 
+
+          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+
+          <p>投稿日</p>
+          <?php the_time('Y.m.d') ?>
+
+          <p>カテゴリー</p>
+          <?php the_category(',') ?>
+
+
+
+
+          投稿者：<?php the_author_posts_link(); ?>
+
+        </div>
+      <?php
+      }
+      wp_reset_postdata();
+      ?>
+
+    </div>
   </div>
-<?php
-}
-wp_reset_pagedata();
-?>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php get_footer(); ?>

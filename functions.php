@@ -20,11 +20,19 @@ function register_custom_post_type_item()
     'label' => '商品',
     'public' => true,
     'menu_position' => 2,
-    'hierarchical' => true,
+    //'hierarchical' => true,
+    'menu_icon' => 'dashicons-controls-play',
+    'supports' => ['thumbnail', 'title', 'editor', 'page-attributes', 'custom-fields'],
+    'has_archive' => true,
+    //    'show_in_rest' => true,
+  ]);
+
+  register_post_type('news', [
+    'label' => '新着情報',
+    'public' => true,
+    'menu_position' => 3,
     'menu_icon' => 'dashicons-controls-play',
     'supports' => ['thumbnail', 'title', 'editor', 'page-attributes'],
-    'has_archive' => true,
-    'show_in_rest' => true,
   ]);
 }
 add_action('init', 'register_custom_post_type_item');
@@ -90,3 +98,75 @@ function filter_search($query)
   }
 }
 add_filter('pre_get_posts', 'filter_search');
+
+//ウィジェット有効化
+function add_widget_area()
+{
+  register_sidebar(array(
+    'name' => 'サイドバー1',
+    'id' => 'sidebar1',
+    'before_widget' => '<div>',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>'
+  ));
+}
+add_action('widgets_init', 'add_widget_area');
+
+
+//パンくずリスト有効化
+
+// <title>タグのセパレーターを変更
+function my_document_title_separator($sep)
+{
+  $sep = '｜';
+  return $sep;
+}
+add_filter('document_title_separator', 'my_document_title_separator');
+
+// titleのDescription削除
+function remove_title_description($title)
+{
+  if (is_home() || is_front_page()) {
+    unset($title['tagline']);
+  }
+  return $title;
+}
+add_filter('document_title_parts', 'remove_title_description', 10, 1);
+
+
+// head 以外はタイトルのみを出力
+function nohead_document_title($title)
+{
+  if (!doing_action('wp_head')) {
+    //doing_actionで、wp_headから呼ばれていない場合を判別
+    unset($title['site']); //サイトタイトルを削除
+  }
+  return $title;
+}
+add_filter('document_title_parts', 'nohead_document_title');
+
+
+
+// 同じ日付でも日付を表示
+function my_the_post()
+{
+  global $previousday;
+  $previousday = '';
+}
+add_action('the_post', 'my_the_post');
+
+
+//?author=x防止
+function shapeSpace_check_enum($redirect, $request)
+{
+  // permalink URL format
+  if (preg_match('/\?author=([0-9]*)(\/*)/i', $request)) die();
+  else return $redirect;
+}
+
+if (!is_admin()) {
+  // default URL format
+  if (preg_match('/author=([0-9]*)/i', $_SERVER['QUERY_STRING'])) die();
+  add_filter('redirect_canonical', 'shapeSpace_check_enum', 10, 2);
+}

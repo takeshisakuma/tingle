@@ -1,1 +1,9 @@
-@import "mainnav";
+@import "var";
+@import "general";
+
+@import "header";
+@import "footer";
+@import "front-page";
+
+@import "page-allposts";
+@import "archive-item";
