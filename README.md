@@ -28,16 +28,16 @@ ogimage.png
 
 # 作成するページ
 
-| 分類       | スラッグ   | テンプレート名      | 内容                                               |
-| ---------- | ---------- | ------------------- | -------------------------------------------------- |
-| 固定ページ | allposts   | page-allposts.php   | 投稿ページ一覧                                     |
-| 固定ページ | allpages   | page-allpages.php   | 固定ページ一覧                                     |
-| 固定ページ | allauthors | page-allauthors.php | 全著者一覧                                         |
-| 固定ページ | alldates   | page-alldates.php   | 日付一覧                                           |
-| 固定ページ | alldates   | page-item_tag.php   | 投稿タイプ item のカテゴリー一覧                   |
-| 固定ページ | alldates   | page-item_cat.php   | 投稿タイプ item のタグ一覧                         |
-| 固定ページ | tag        | page-alltags.php    | 全タグ一覧(ページ編集画面でテンプレート指定)       |
-| 固定ページ | category   | page-alltags.php    | 全カテゴリー一覧(ページ編集画面でテンプレート指定) |
+| 分類       | スラッグ   | テンプレート名         | 内容                                               |
+| ---------- | ---------- | ---------------------- | -------------------------------------------------- |
+| 固定ページ | allposts   | page-allposts.php      | 投稿ページ一覧                                     |
+| 固定ページ | allpages   | page-allpages.php      | 固定ページ一覧                                     |
+| 固定ページ | allauthors | page-allauthors.php    | 全著者一覧                                         |
+| 固定ページ | alldates   | page-alldates.php      | 日付一覧                                           |
+| 固定ページ | alldates   | page-item_tag.php      | 投稿タイプ item のカテゴリー一覧                   |
+| 固定ページ | alldates   | page-item_cat.php      | 投稿タイプ item のタグ一覧                         |
+| 固定ページ | tag        | page-alltags.php       | 全タグ一覧(ページ編集画面でテンプレート指定)       |
+| 固定ページ | category   | page-allcategories.php | 全カテゴリー一覧(ページ編集画面でテンプレート指定) |
 
 # include 用テンプレートファイル
 

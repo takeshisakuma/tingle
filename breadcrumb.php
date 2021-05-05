@@ -1,18 +1,16 @@
 <section class="breadcrumb">
 
-  <!-- homeなら -->
 
+
+  <!-- パンくず無し系 -->
   <?php if (is_home()) : ?>
-    <!-- パンくずなし -->
   <?php endif; ?>
 
-  <!-- front-pageなら -->
   <?php if (is_front_page()) : ?>
-    <!-- パンくずなし -->
   <?php endif; ?>
 
-
-
+  <?php if (is_404()) : ?>
+  <?php endif; ?>
 
 
 
@@ -37,8 +35,6 @@
 
     <!-- その他の固定ページ -->
 
-
-
   <?php elseif (is_page()) : ?>
 
     <?php if (is_front_page()) : ?>
@@ -47,7 +43,39 @@
 
       <!-- トップページ -->
       <a href="<?php echo esc_url(home_url()); ?>">HOME</a>
-      <!-- 親ページ？ -->
+
+
+
+
+
+
+      <!-- 親ページ -->
+
+
+      <?php
+      //親階層の数を取得
+      $parent_number = count($post->ancestors);
+
+
+      for ($i = 1; $i <=  $parent_number; $i++) {
+
+        //親ページのIDを取得
+        $parent_id = $post->ancestors[count($post->ancestors)  - $i];
+
+        //親ページのタイトルを取得して表示
+        $parent_title = get_post($parent_id)->post_title;
+
+        // 親ページの URL を表示
+        $parent_url = get_permalink($parent_id);
+
+        echo '&gt;<a href="' . $parent_url . '">' .  $parent_title . '</a>';
+      }
+
+      ?>
+
+
+
+
 
       <!-- 現在のページタイトル -->
       &gt; <?php the_title(); ?>
@@ -172,11 +200,7 @@
   <?php endif; ?>
 
 
-  <!-- 404なら -->
-  <?php if (is_404()) : ?>
-    <!-- パンくずなし -->
 
-  <?php endif; ?>
 
 
 </section>
