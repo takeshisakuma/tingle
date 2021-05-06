@@ -55,18 +55,38 @@
       <?php the_tags('<ul><li>', '</li><li>', '</li></ul>'); ?>
 
 
-      <p>この著者の他の記事</p>
 
-      <p>Other posts by <?php the_author_posts_link("user"); ?></p>
 
-      <?php the_author_link(); ?>
-      <?php the_author(); ?>
 
-      <?php the_author_link(); ?>
-      <?php the_author_posts_link(); ?>
-      <p>同じ月の投稿</p>
 
-      <ul><?php wp_get_archives('yearly'); ?></ul>
+
+      <?php if (have_posts()) : ?>
+        <?php while (have_posts()) : the_post(); ?>
+          <p><?php the_author_posts_link(); ?>の記事</p>
+
+        <?php endwhile; ?>
+      <?php else : ?>
+
+      <?php endif; ?>
+
+
+
+      <?php
+      $year   = get_the_date('Y');
+      $month  = get_the_date('m');
+      ?>
+      <p>
+        <a href="<?php echo get_month_link($year, $month); ?>">
+          <?php echo $year . "年" . $month . "月の投稿"; ?>
+        </a>
+      </p>
+
+
+
+
+
+
+
       </article>
 
 

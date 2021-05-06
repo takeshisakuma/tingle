@@ -25,7 +25,9 @@
 </head>
 
 <body>
-  <?php get_template_part('page-judgement'); ?>
+
+  <?php //get_template_part('page-judgement'); 
+  ?>
 
 
 

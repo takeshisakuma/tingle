@@ -1,10 +1,5 @@
 <?php get_header(); ?>
 
-
-
-
-
-
 <div class="fullWidth">
   <div class="contentWidth">
     <div class="contentBlock">

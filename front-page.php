@@ -40,7 +40,11 @@
             <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
           </div>
         <?php endwhile; ?>
+
+      <?php else : ?>
+        <p>新着情報はありません</p>
       <?php endif; ?>
+
       <?php wp_reset_postdata(); ?>
     </div>
   </div>

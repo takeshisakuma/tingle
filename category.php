@@ -9,7 +9,9 @@
     <div class="contentBlock">
       category.php
 
+
       <h1>カテゴリー:<?php single_cat_title(); ?>の投稿一覧</h1>
+
     </div>
   </div>
 </div>
@@ -34,8 +36,12 @@
 
           <?php the_excerpt(); ?>
 
-        <?php endwhile;
-      else : ?>
+        <?php endwhile; ?>
+
+
+      <?php else : ?>
+
+        <p>このカテゴリーの記事がありませんでした。</p>
       <?php endif; ?>
 
 

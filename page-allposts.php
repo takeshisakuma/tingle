@@ -9,7 +9,18 @@
     <div class="contentBlock">
       page-allposts.php
 
-      <h1 class="">投稿一覧</h1>
+
+      <?php echo count(get_posts()); ?>
+      <?php if (count(get_posts()) !== 0) {
+        echo '<h1 class="">投稿一覧</h1>';
+      } else {
+        echo "<h1>投稿は存在しませんでした。</h1>";
+      }
+      ?>
+
+
+
+
 
       <?php
       global $post;
