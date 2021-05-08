@@ -1,4 +1,4 @@
-# mytheme
+# Tingle
 WorddPrssのスターターテーマ
 CSSはPC用の基本的なレイアウトしか用意していないので、必要に応じて追記が必要
 
