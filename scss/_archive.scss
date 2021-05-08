@@ -1,0 +1,39 @@
+.archive__item {
+  display: flex;
+
+  + .archive__item {
+    margin-top: 40px;
+  }
+
+  .archive__thumb {
+    width: 200px;
+    height: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    img {
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .archive__infomation {
+    background-color: #f1f1f1;
+    padding: 20px;
+    flex-flow: column;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .archive__heading {
+      font-size: 2rem;
+      font-weight: bold;
+      a {
+        color: #333;
+      }
+    }
+    .archive__data {
+      text-align: right;
+    }
+  }
+}

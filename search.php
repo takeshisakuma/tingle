@@ -1,22 +1,44 @@
 <?php get_header(); ?>
 
+<div class="fullWidth">
+  <div class="contentWidth">
+    <div class="contentBlock">
 
-search.php
-<h2><?php the_search_query(); ?>の検索結果 : <?php echo $wp_query->found_posts; ?>件</h2>
-<!-- 投稿情報 loop -->
-<?php if (have_posts()) : ?>
-  <?php while (have_posts()) : the_post() ?>
-    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-    <div class="post">
-      <?php if (has_post_thumbnail()) : ?>
-        <p class="postThumbnail">サムネイル<?php the_post_thumbnail(); ?></p>
-      <?php endif; ?>
-      <p><?php the_content('詳細はこちら'); ?></p>
-    </div><!-- /post -->
-  <?php endwhile; ?>
-<?php else : ?>
-  <div class="post">
-    <p>申し訳ございません。<br />該当する記事がございません。</p>
+
+      <div class="headerArea--normal">
+        <h1 class="headerArea__mainHeading"><?php the_search_query(); ?>の検索結果 : <?php echo $wp_query->found_posts; ?>件</h1>
+      </div>
+    </div>
   </div>
-<?php endif; ?>
+</div>
+
+
+
+<div class="fullWidth">
+  <div class="contentWidth">
+    <div class="contentBlock">
+
+      <div class="contentArea--normal">
+        <?php if (have_posts()) : ?>
+          <ul>
+            <?php while (have_posts()) : the_post() ?>
+              <li>
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+              </li>
+
+            <?php endwhile; ?>
+          </ul>
+        <?php else : ?>
+          <div class="post">
+            <p>該当する記事がありません。</p>
+          </div>
+        <?php endif; ?>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <?php get_footer(); ?>

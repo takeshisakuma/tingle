@@ -1,0 +1,12 @@
+.singleItem__table {
+  border-collapse: collapse;
+
+  td,
+  th {
+    padding: 10px;
+    border: 1px solid black;
+  }
+  th {
+    white-space: nowrap;
+  }
+}

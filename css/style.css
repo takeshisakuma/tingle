@@ -27,6 +27,19 @@ body {
 .contentBlock {
   padding-bottom: 40px;
 }
+.headerArea--normal {
+  padding: 40px 0;
+}
+.headerArea--normal .headerArea__mainHeading {
+  font-weight: bold;
+  font-size: 2.6rem;
+  border-left: 8px solid red;
+  line-height: 1;
+  padding-left: 12px;
+}
+.contentArea--normal {
+  padding-bottom: 40px;
+}
 .header {
   background-color: #333;
 }
@@ -78,29 +91,78 @@ body {
   color: white;
   text-align: center;
 }
-.frontPage__heading1 {
-  font-size: 2rem;
+.breadcrumb {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.pageAllposts__item {
-  background-color: gray;
+.breadcrumb ul li {
+  display: inline-block;
 }
-.pageAllposts__item + .pageAllposts__item {
+.breadcrumb ul li + li:before {
+  content: " > ";
+}
+.archive__item {
+  display: flex;
+}
+.archive__item + .archive__item {
   margin-top: 40px;
 }
-.pageAllposts__thumb {
+.archive__item .archive__thumb {
   width: 200px;
+  height: 200px;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
-.pageAllposts__thumb img {
+.archive__item .archive__thumb img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+}
+.archive__item .archive__infomation {
+  background-color: #f1f1f1;
+  padding: 20px;
+  flex-flow: column;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.archive__item .archive__infomation .archive__heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.archive__item .archive__infomation .archive__heading a {
+  color: #333;
+}
+.archive__item .archive__infomation .archive__data {
+  text-align: right;
 }
 .archiveItem__table {
-  margin-top: 40px;
   width: 100%;
   border-collapse: collapse;
 }
 .archiveItem__table td {
   border: 1px solid black;
   padding: 10px;
+}
+.singleItem__table {
+  border-collapse: collapse;
+}
+.singleItem__table td, .singleItem__table th {
+  padding: 10px;
+  border: 1px solid black;
+}
+.singleItem__table th {
+  white-space: nowrap;
+}
+.single__thumb img {
+  max-width: 100%;
+  height: auto;
+}
+.single__mainText {
+  margin-top: 20px;
+}
+.single__data {
+  margin: 20px 0 0 auto;
+  display: table;
 }
 /*# sourceMappingURL=style.css.map */

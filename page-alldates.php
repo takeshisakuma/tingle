@@ -1,39 +1,26 @@
 <?php get_header(); ?>
 
-
-
-
-
-
 <div class="fullWidth">
   <div class="contentWidth">
     <div class="contentBlock">
-      page-allauthors.php
-
-      <h1 class="">全日付一覧</h1>
-
-      <ul>
-        <?php wp_get_archives(); ?>
-      </ul>
+      <div class="headerArea--normal">
+        <h1 class="headerArea__mainHeading"><?php the_title(); ?></h1>
+      </div>
     </div>
   </div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="fullWidth">
+  <div class="contentWidth">
+    <div class="contentBlock">
+      <div class="contentArea--normal">
+        <ul>
+          <?php wp_get_archives(); ?>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php get_footer(); ?>

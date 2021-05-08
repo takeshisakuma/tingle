@@ -5,9 +5,20 @@
 <div class="fullWidth">
   <div class="contentWidth">
     <div class="contentBlock">
-      404
 
-      <h1>お探しのページは存在しません。</h1>
+
+
+      <div class="headerArea--normal">
+        <h1 class="headerArea__mainHeading">お探しのページは存在しません。</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="fullWidth">
+  <div class="contentWidth">
+    <div class="contentBlock">
 
       <p><?php echo get_pagenum_link(); ?>は存在しませんでした。</p>
 

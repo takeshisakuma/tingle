@@ -31,3 +31,17 @@ body {
 .contentBlock {
   padding-bottom: 40px;
 }
+
+.headerArea--normal {
+  padding: 40px 0;
+  .headerArea__mainHeading {
+    font-weight: bold;
+    font-size: 2.6rem;
+    border-left: 8px solid red;
+    line-height: 1;
+    padding-left: 12px;
+  }
+}
+.contentArea--normal {
+  padding-bottom: 40px;
+}
